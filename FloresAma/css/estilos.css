@@ -1,0 +1,1347 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* =====================================================
+   FONDO
+===================================================== */
+
+.cielo {
+    position: relative;
+
+    width: 100%;
+    height: 100vh;
+
+    min-height: 500px;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(255, 230, 120, 0.15),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            to bottom,
+            #101936 0%,
+            #18284a 45%,
+            #263e55 75%,
+            #172b2a 100%
+        );
+}
+
+
+/* =====================================================
+   ESTRELLAS
+===================================================== */
+
+.estrellas {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            white 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,.7) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        140px 140px;
+
+    background-position:
+        10px 20px,
+        50px 70px;
+
+    opacity: .45;
+}
+
+
+/* =====================================================
+   MENSAJE
+===================================================== */
+
+.mensaje {
+
+    position: absolute;
+
+    top: 7%;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    width: 90%;
+
+    text-align: center;
+
+    color: white;
+
+    z-index: 50;
+
+    animation:
+        aparecer 2s ease forwards;
+}
+
+
+.mensaje span {
+
+    display: block;
+
+    font-size:
+        clamp(
+            14px,
+            2vw,
+            20px
+        );
+
+    letter-spacing: 4px;
+
+    color: #ffe873;
+
+    margin-bottom: 10px;
+}
+
+
+.mensaje h1 {
+
+    font-family: Georgia, serif;
+
+    font-size:
+        clamp(
+            45px,
+            8vw,
+            90px
+        );
+
+    font-weight: normal;
+
+    color: #fff5b5;
+
+    text-shadow:
+
+        0 0 10px
+        rgba(255, 225, 80, .5),
+
+        0 0 30px
+        rgba(255, 225, 80, .2);
+}
+
+
+.mensaje p {
+
+    margin-top: 12px;
+
+    font-size:
+        clamp(
+            13px,
+            2vw,
+            18px
+        );
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            .75
+        );
+}
+
+
+/* =====================================================
+   JARDÍN / RAMO
+===================================================== */
+
+.jardin {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: -45px;
+
+    width: 520px;
+
+    height: 450px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   TALLOS
+===================================================== */
+
+.tallo {
+
+    position: absolute;
+
+    bottom: 0;
+
+    width: 9px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            to right,
+            #315c35,
+            #579448,
+            #315c35
+        );
+
+    transform-origin:
+        bottom center;
+
+    z-index: 1;
+
+    animation:
+        balanceoTallo 4s
+        ease-in-out infinite;
+}
+
+
+/* TALLO CENTRAL */
+
+.tallo1 {
+
+    left: 255px;
+
+    height: 370px;
+
+    transform:
+        rotate(-3deg);
+}
+
+
+/* TALLOS IZQUIERDOS */
+
+.tallo2 {
+
+    left: 205px;
+
+    height: 320px;
+
+    transform:
+        rotate(-14deg);
+}
+
+.tallo3 {
+
+    left: 155px;
+
+    height: 285px;
+
+    transform:
+        rotate(-24deg);
+}
+
+.tallo4 {
+
+    left: 105px;
+
+    height: 240px;
+
+    transform:
+        rotate(-34deg);
+}
+
+
+/* TALLOS DERECHOS */
+
+.tallo5 {
+
+    left: 305px;
+
+    height: 325px;
+
+    transform:
+        rotate(13deg);
+}
+
+.tallo6 {
+
+    left: 355px;
+
+    height: 285px;
+
+    transform:
+        rotate(24deg);
+}
+
+.tallo7 {
+
+    left: 405px;
+
+    height: 240px;
+
+    transform:
+        rotate(34deg);
+}
+
+
+/* TALLOS ADICIONALES */
+
+.tallo8 {
+
+    left: 230px;
+
+    height: 270px;
+
+    transform:
+        rotate(-8deg);
+}
+
+.tallo9 {
+
+    left: 330px;
+
+    height: 270px;
+
+    transform:
+        rotate(8deg);
+}
+
+
+/* =====================================================
+   HOJAS
+===================================================== */
+
+.hoja {
+
+    position: absolute;
+
+    width: 95px;
+
+    height: 45px;
+
+    border-radius:
+        100% 0 100% 0;
+
+    background:
+        linear-gradient(
+            135deg,
+            #477f3c,
+            #75ad50
+        );
+
+    z-index: 3;
+}
+
+
+.hoja::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 75%;
+
+    left: 20px;
+
+    top: 15%;
+
+    background:
+        rgba(
+            30,
+            80,
+            30,
+            .45
+        );
+}
+
+
+/* IZQUIERDA */
+
+.hoja1 {
+
+    left: 145px;
+
+    bottom: 105px;
+
+    transform:
+        rotate(-30deg);
+
+    animation:
+        hojaIzq 4s
+        ease-in-out infinite;
+}
+
+
+.hoja2 {
+
+    left: 100px;
+
+    bottom: 165px;
+
+    transform:
+        rotate(-45deg);
+
+    animation:
+        hojaIzq 4.5s
+        ease-in-out infinite;
+}
+
+
+.hoja3 {
+
+    left: 190px;
+
+    bottom: 185px;
+
+    transform:
+        rotate(-20deg);
+
+    animation:
+        hojaIzq 5s
+        ease-in-out infinite;
+}
+
+
+/* DERECHA */
+
+.hoja4 {
+
+    right: 135px;
+
+    bottom: 110px;
+
+    transform:
+        scaleX(-1)
+        rotate(-30deg);
+
+    animation:
+        hojaDer 4s
+        ease-in-out infinite;
+}
+
+
+.hoja5 {
+
+    right: 95px;
+
+    bottom: 165px;
+
+    transform:
+        scaleX(-1)
+        rotate(-45deg);
+
+    animation:
+        hojaDer 4.5s
+        ease-in-out infinite;
+}
+
+
+.hoja6 {
+
+    right: 185px;
+
+    bottom: 190px;
+
+    transform:
+        scaleX(-1)
+        rotate(-20deg);
+
+    animation:
+        hojaDer 5s
+        ease-in-out infinite;
+}
+
+
+/* HOJAS INFERIORES */
+
+.hoja7 {
+
+    left: 170px;
+
+    bottom: 55px;
+
+    transform:
+        rotate(-50deg);
+}
+
+
+.hoja8 {
+
+    right: 165px;
+
+    bottom: 55px;
+
+    transform:
+        scaleX(-1)
+        rotate(-50deg);
+}
+
+
+/* =====================================================
+   CONTENEDOR DE FLORES
+===================================================== */
+
+#ramo-flores {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 10;
+}
+
+
+/* =====================================================
+   FLOR
+===================================================== */
+
+.flor-ramo {
+
+    position: absolute;
+
+    width: 190px;
+
+    height: 190px;
+
+    transform-origin:
+        center center;
+
+    animation:
+        florBalanceo 4s
+        ease-in-out infinite;
+}
+
+
+/* =====================================================
+   PÉTALOS
+===================================================== */
+
+.flor-ramo .petalo {
+
+    position: absolute;
+
+    width: 78px;
+
+    height: 105px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform-origin:
+        50% 100%;
+
+    border-radius:
+        50% 50% 45% 45%;
+
+    background:
+        radial-gradient(
+            circle at 50% 85%,
+
+            #fff7a0 0%,
+
+            #ffe34f 30%,
+
+            #f6bd18 70%,
+
+            #df9708 100%
+        );
+
+    box-shadow:
+        0 0 12px
+        rgba(
+            255,
+            215,
+            40,
+            .35
+        );
+}
+
+
+/* =====================================================
+   SEIS PÉTALOS
+===================================================== */
+
+.flor-ramo .p1 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(0deg);
+}
+
+
+.flor-ramo .p2 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(60deg);
+}
+
+
+.flor-ramo .p3 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(120deg);
+}
+
+
+.flor-ramo .p4 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(180deg);
+}
+
+
+.flor-ramo .p5 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(240deg);
+}
+
+
+.flor-ramo .p6 {
+
+    transform:
+        translate(
+            -50%,
+            -100%
+        )
+        rotate(300deg);
+}
+
+
+/* =====================================================
+   CENTRO DE LA FLOR
+===================================================== */
+
+.flor-ramo .centro {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 50%;
+
+    width: 65px;
+
+    height: 65px;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+
+            #9c5c0b 0%,
+
+            #c7790e 35%,
+
+            #e39b19 70%,
+
+            #f0b72a 100%
+        );
+
+    box-shadow:
+
+        0 0 0 8px
+        rgba(
+            255,
+            211,
+            47,
+            .25
+        ),
+
+        0 0 25px
+        rgba(
+            255,
+            200,
+            30,
+            .4
+        );
+
+    z-index: 5;
+}
+
+
+/* =====================================================
+   POSICIONES DE LAS 20 FLORES
+===================================================== */
+
+
+/* FLORES SUPERIORES */
+
+.flor-ramo:nth-child(1) {
+
+    left: 165px;
+    top: -35px;
+
+    transform:
+        scale(1.05);
+}
+
+
+.flor-ramo:nth-child(2) {
+
+    left: 60px;
+    top: 15px;
+
+    transform:
+        scale(.85)
+        rotate(-12deg);
+}
+
+
+.flor-ramo:nth-child(3) {
+
+    left: 270px;
+    top: 15px;
+
+    transform:
+        scale(.88)
+        rotate(12deg);
+}
+
+
+/* SEGUNDA FILA */
+
+.flor-ramo:nth-child(4) {
+
+    left: -5px;
+    top: 75px;
+
+    transform:
+        scale(.72)
+        rotate(-18deg);
+}
+
+
+.flor-ramo:nth-child(5) {
+
+    left: 105px;
+    top: 70px;
+
+    transform:
+        scale(.92)
+        rotate(-6deg);
+}
+
+
+.flor-ramo:nth-child(6) {
+
+    left: 210px;
+    top: 70px;
+
+    transform:
+        scale(.95)
+        rotate(5deg);
+}
+
+
+.flor-ramo:nth-child(7) {
+
+    left: 320px;
+    top: 80px;
+
+    transform:
+        scale(.72)
+        rotate(18deg);
+}
+
+
+/* TERCERA FILA */
+
+.flor-ramo:nth-child(8) {
+
+    left: -45px;
+    top: 145px;
+
+    transform:
+        scale(.62)
+        rotate(-22deg);
+}
+
+
+.flor-ramo:nth-child(9) {
+
+    left: 45px;
+    top: 135px;
+
+    transform:
+        scale(.78)
+        rotate(-10deg);
+}
+
+
+.flor-ramo:nth-child(10) {
+
+    left: 145px;
+    top: 140px;
+
+    transform:
+        scale(.88);
+}
+
+
+.flor-ramo:nth-child(11) {
+
+    left: 245px;
+    top: 140px;
+
+    transform:
+        scale(.82)
+        rotate(8deg);
+}
+
+
+.flor-ramo:nth-child(12) {
+
+    left: 345px;
+    top: 150px;
+
+    transform:
+        scale(.62)
+        rotate(22deg);
+}
+
+
+/* CUARTA FILA */
+
+.flor-ramo:nth-child(13) {
+
+    left: -75px;
+    top: 210px;
+
+    transform:
+        scale(.52)
+        rotate(-25deg);
+}
+
+
+.flor-ramo:nth-child(14) {
+
+    left: 10px;
+    top: 200px;
+
+    transform:
+        scale(.66)
+        rotate(-12deg);
+}
+
+
+.flor-ramo:nth-child(15) {
+
+    left: 95px;
+    top: 205px;
+
+    transform:
+        scale(.72);
+}
+
+
+.flor-ramo:nth-child(16) {
+
+    left: 190px;
+    top: 205px;
+
+    transform:
+        scale(.75)
+        rotate(5deg);
+}
+
+
+.flor-ramo:nth-child(17) {
+
+    left: 285px;
+    top: 210px;
+
+    transform:
+        scale(.66)
+        rotate(14deg);
+}
+
+
+.flor-ramo:nth-child(18) {
+
+    left: 370px;
+    top: 220px;
+
+    transform:
+        scale(.52)
+        rotate(25deg);
+}
+
+
+/* FLORES INFERIORES */
+
+.flor-ramo:nth-child(19) {
+
+    left: 60px;
+    top: 260px;
+
+    transform:
+        scale(.52)
+        rotate(-15deg);
+}
+
+
+.flor-ramo:nth-child(20) {
+
+    left: 340px;
+    top: 265px;
+
+    transform:
+        scale(.52)
+        rotate(15deg);
+}
+
+
+/* =====================================================
+   FLORES PEQUEÑAS QUE CAEN
+===================================================== */
+
+#flores-caidas {
+
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+
+.flor-caida {
+
+    position: absolute;
+
+    top: -60px;
+
+    width: 20px;
+
+    height: 20px;
+
+    pointer-events: none;
+
+    animation:
+        caer linear forwards,
+        girar 3s linear infinite;
+}
+
+
+/* =====================================================
+   PÉTALOS DE LAS FLORES QUE CAEN
+===================================================== */
+
+.flor-caida::before,
+.flor-caida::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: 50%;
+
+    background:
+        #ffd92f;
+
+    box-shadow:
+
+        10px 0 #ffd92f,
+
+        -10px 0 #ffd92f,
+
+        0 10px #ffd92f,
+
+        0 -10px #ffd92f;
+}
+
+
+.flor-caida::after {
+
+    width: 7px;
+
+    height: 7px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    background:
+        #a96809;
+
+    box-shadow: none;
+}
+
+
+/* =====================================================
+   ANIMACIÓN FLORES QUE CAEN
+===================================================== */
+
+@keyframes caer {
+
+    0% {
+
+        transform:
+            translate3d(
+                0,
+                -50px,
+                0
+            )
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+
+    10% {
+
+        opacity: 1;
+    }
+
+
+    25% {
+
+        transform:
+            translate3d(
+                60px,
+                25vh,
+                0
+            )
+            rotate(90deg);
+    }
+
+
+    50% {
+
+        transform:
+            translate3d(
+                -70px,
+                50vh,
+                0
+            )
+            rotate(180deg);
+    }
+
+
+    75% {
+
+        transform:
+            translate3d(
+                80px,
+                75vh,
+                0
+            )
+            rotate(270deg);
+    }
+
+
+    100% {
+
+        transform:
+            translate3d(
+                -80px,
+                110vh,
+                0
+            )
+            rotate(360deg);
+
+        opacity: .15;
+    }
+}
+
+
+/* =====================================================
+   GIRO
+===================================================== */
+
+@keyframes girar {
+
+    from {
+
+        rotate: 0deg;
+    }
+
+    to {
+
+        rotate: 360deg;
+    }
+}
+
+
+/* =====================================================
+   MOVIMIENTO DEL RAMO
+===================================================== */
+
+@keyframes florBalanceo {
+
+    0%,
+    100% {
+
+        margin-top: 0;
+    }
+
+    50% {
+
+        margin-top: -5px;
+    }
+}
+
+
+@keyframes balanceoTallo {
+
+    0%,
+    100% {
+
+        margin-left: 0;
+    }
+
+    50% {
+
+        margin-left: 3px;
+    }
+}
+
+
+/* =====================================================
+   HOJAS
+===================================================== */
+
+@keyframes hojaIzq {
+
+    0%,
+    100% {
+
+        margin-left: 0;
+    }
+
+    50% {
+
+        margin-left: -4px;
+    }
+}
+
+
+@keyframes hojaDer {
+
+    0%,
+    100% {
+
+        margin-right: 0;
+    }
+
+    50% {
+
+        margin-right: -4px;
+    }
+}
+
+
+/* =====================================================
+   APARICIÓN
+===================================================== */
+
+@keyframes aparecer {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translate(
+                -50%,
+                -20px
+            );
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translate(
+                -50%,
+                0
+            );
+    }
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .mensaje {
+
+        top: 6%;
+    }
+
+
+    .mensaje h1 {
+
+        font-size: 48px;
+    }
+
+
+    .mensaje p {
+
+        width: 90%;
+
+        margin-left: auto;
+
+        margin-right: auto;
+
+        line-height: 1.5;
+    }
+
+
+    .jardin {
+
+        transform:
+            translateX(-50%)
+            scale(.72);
+
+        transform-origin:
+            bottom center;
+    }
+}
+
+
+/* =====================================================
+   CELULARES PEQUEÑOS
+===================================================== */
+
+@media (max-width: 450px) {
+
+    .mensaje span {
+
+        font-size: 12px;
+
+        letter-spacing: 2px;
+    }
+
+
+    .mensaje h1 {
+
+        font-size: 40px;
+    }
+
+
+    .mensaje p {
+
+        font-size: 13px;
+    }
+
+
+    .jardin {
+
+        transform:
+            translateX(-50%)
+            scale(.58);
+
+        transform-origin:
+            bottom center;
+    }
+}
+
+
+/* =====================================================
+   PANTALLAS BAJAS
+===================================================== */
+
+@media (max-height: 650px) {
+
+    .mensaje {
+
+        top: 3%;
+    }
+
+
+    .mensaje h1 {
+
+        font-size: 45px;
+    }
+
+
+    .mensaje p {
+
+        display: none;
+    }
+
+
+    .jardin {
+
+        transform:
+            translateX(-50%)
+            scale(.58);
+
+        transform-origin:
+            bottom center;
+    }
+}
+
